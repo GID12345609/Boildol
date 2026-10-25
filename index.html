@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boildol</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;height:100vh;overflow:hidden;font-family:Arial,sans-serif;color:#fff;background:radial-gradient(ellipse at 15% 10%,#365c91,transparent 45%),radial-gradient(ellipse at 85% 85%,#563c85,transparent 45%),#080b15}
+header{height:76px;margin:14px 16px 10px;padding:12px 18px;display:flex;align-items:center;gap:12px;border:1px solid #ffffff24;border-radius:25px;background:#ffffff12;backdrop-filter:blur(30px);box-shadow:0 8px 35px #0003}
+.logo{font-size:23px;font-weight:800;letter-spacing:-1px;margin-right:auto}
+.logo span{color:#9edcff}
+button{border:1px solid #ffffff20;border-radius:14px;padding:11px 15px;color:white;background:#ffffff12;cursor:pointer;font-size:15px}
+button:hover{background:#ffffff28}
+main{position:absolute;top:100px;left:16px;right:16px;bottom:16px;border:1px solid #ffffff28;border-radius:25px;overflow:hidden;background:#ffffff08;box-shadow:0 15px 60px #0004}
+iframe{width:100%;height:100%;border:0;background:white}
+.status{position:absolute;right:15px;bottom:15px;padding:9px 13px;border-radius:14px;background:#101522bb;border:1px solid #ffffff20;backdrop-filter:blur(20px);font-size:12px;color:#c8e9ff;pointer-events:none}
+@media(max-width:500px){header{margin:8px;height:65px;padding:8px;gap:6px}.logo{font-size:19px}button{padding:10px;font-size:13px}main{top:81px;left:8px;right:8px;bottom:8px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Boi<span>ldol</span></div>
+  <button onclick="goBack()" title="Quay lại">←</button>
+  <button onclick="goForward()" title="Tiến">→</button>
+  <button onclick="reloadPage()" title="Tải lại">⟳</button>
+  <button onclick="goHome()" title="Trang chủ">⌂</button>
+</header>
+<main>
+  <iframe id="web" src="https://demo.webfuse.com/+iframetest/?url=https%3A%2F%2Fwww.google.com" title="Boildol Web Viewer" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <div class="status">BOILDOL · LIQUID GLASS</div>
+</main>
+<script>
+const homeURL='https://demo.webfuse.com/+iframetest/?url=https%3A%2F%2Fwww.google.com';
+const frame=document.getElementById('web');
+function goBack(){try{frame.contentWindow.history.back()}catch(e){}}
+function goForward(){try{frame.contentWindow.history.forward()}catch(e){}}
+function reloadPage(){frame.src=frame.src}
+function goHome(){frame.src=homeURL}
+</script>
+</body>
+</html>
